@@ -1,2 +1,5 @@
-# deno-tutorial
-taste deno (OAK Framework)
+# deno
+
+> let's taste deno (OAK Framework)
+
+- [deno docs](https://deno.land/)
