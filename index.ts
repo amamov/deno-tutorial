@@ -25,24 +25,27 @@ const datas = [
   },
 ];
 
-router.get("/", (context) => {
-  console.log(context);
-  context.response.body = "Hello Deno";
-}).get("/datas", (context) => {
-  context.response.body = datas;
-}).post("/data", async ({ request, response }) => {
-  const body = await request.body();
-  if (!request.hasBody) {
-    response.status = 400;
-    response.body = "Noy Found Page";
-  } else {
-    const data = body.value;
-    data.id = v4.generate();
-    datas.push(data);
-    response.status = 201;
-    response.body = data;
-  }
-});
+router
+  .get("/", (context) => {
+    console.log(context);
+    context.response.body = "Hello Deno";
+  })
+  .get("/datas", (context) => {
+    context.response.body = datas;
+  })
+  .post("/data", async ({ request, response }) => {
+    const body = await request.body();
+    if (!request.hasBody) {
+      response.status = 400;
+      response.body = "Noy Found Page";
+    } else {
+      const data = body.value;
+      // data.id = v4.generate();
+      // datas.push(data);
+      response.status = 201;
+      response.body = data;
+    }
+  });
 
 console.log("http://localhost:8000");
 
